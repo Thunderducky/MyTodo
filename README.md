@@ -17,7 +17,7 @@ Situation
     Event
     Response
 
-## MVP
+## MVP (Minimum Viable Product)
 GIVEN I'm using my todo list
 * WHEN I type in a new task and press enter
 THEN My task appears on the page
@@ -31,15 +31,6 @@ THEN I should still see my list of tasks
 THEN It records how long it took
 * WHEN I have no tasks
 THEN I get a message
-
-## MVP (Minimum Viable Product)
-GIVEN I'm using my todo list
-* WHEN I type in a new task and press enter
-THEN My task appears on the page
-* WHEN I'm done with a task
-THEN I can click a button to mark it as complete, and this will remove the task
-* WHEN I refresh the page
-THEN I should still see my list of tasks
 
 
 ## What's the Data that my application needs
