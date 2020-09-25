@@ -2,7 +2,7 @@ var newTodoEl = document.getElementById("new-todo");
 var newTodoForm = document.getElementById("new-todo-form");
 var todosDiv = document.getElementById("todos");
 
-var todos = ["Eat Lunch", "Drink Water", "Stretch", "Walk Dog"];
+var todos = ["Feed the dog", "Get ready for DnD", "Eat another sandwich"];
 
 function renderTodos(){
     todosDiv.innerHTML = "";
@@ -14,11 +14,10 @@ function renderTodos(){
        todoH2.textContent = todo;
        var todoButton = document.createElement("button");
        todoButton.textContent = "Done";
-
+       todoButton.setAttribute("data-index", i);
         todoDiv.appendChild(todoH2);
         todoDiv.appendChild(todoButton);
-        todosDiv.appendChild(todoDiv);
-        
+        todosDiv.appendChild(todoDiv);  
     }
 }
 
@@ -28,6 +27,17 @@ newTodoForm.addEventListener("submit", function(event){
     newTodoEl.value = "";
     todos.push(value);
     renderTodos();
+})
+
+todosDiv.addEventListener("click", function(event){
+    if(event.target.matches("button")){
+        // Do something with that
+        var button = event.target;
+        var index = button.getAttribute("data-index");
+        console.log(index);
+        todos.splice(index, 1);
+        renderTodos();
+    }
 })
 
 renderTodos();
