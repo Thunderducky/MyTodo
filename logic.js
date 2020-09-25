@@ -2,7 +2,7 @@ var newTodoEl = document.getElementById("new-todo");
 var newTodoForm = document.getElementById("new-todo-form");
 var todosDiv = document.getElementById("todos");
 
-var todos = ["Feed the dog", "Get ready for DnD", "Eat another sandwich"];
+var todos = JSON.parse(localStorage.getItem("todos")) || []
 
 function renderTodos(){
     todosDiv.innerHTML = "";
@@ -27,6 +27,7 @@ newTodoForm.addEventListener("submit", function(event){
     newTodoEl.value = "";
     todos.push(value);
     renderTodos();
+    localStorage.setItem("todos", JSON.stringify(todos));
 })
 
 todosDiv.addEventListener("click", function(event){
@@ -37,6 +38,7 @@ todosDiv.addEventListener("click", function(event){
         console.log(index);
         todos.splice(index, 1);
         renderTodos();
+        localStorage.setItem("todos", JSON.stringify(todos));
     }
 })
 
